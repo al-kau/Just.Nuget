@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Alkau.Just.Nuget</PackageId>
+    <Title>Just nuget</Title>
+    <Authors>Alkau</Authors>
+    <Product>JustNuget</Product>
+    <Description>This is an example of a library that is packed in a nuget.</Description>
+    <RepositoryUrl>https://github.com/al-kau/Just.Nuget</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/al-kau/Just.Nuget</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>nuget; example;</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <AnalysisLevel>6.0-all</AnalysisLevel>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!--<EmbedUntrackedSources>true</EmbedUntrackedSources>-->
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningLevel>9999</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningLevel>9999</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+  </ItemGroup>
+
+</Project>
