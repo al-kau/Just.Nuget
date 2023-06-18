@@ -3,6 +3,9 @@ source/.vs/
 source/Just.Nuget/.vs/
 source/Just.Nuget/bin/
 source/Just.Nuget/obj/
+source/Just.Sample/.vs/
+source/Just.Sample/bin/
+source/Just.Sample/obj/
 source/Just.Test/.vs/
 source/Just.Test/bin/
 source/Just.Test/obj/
