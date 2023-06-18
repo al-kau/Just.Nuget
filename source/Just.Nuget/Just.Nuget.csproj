@@ -2,24 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Alkau.Just.Nuget</RootNamespace>
+    <AnalysisLevel>6.0-all</AnalysisLevel>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+<!-- NuGet package metadata -->
+
     <PackageId>Alkau.Just.Nuget</PackageId>
     <Title>Just nuget</Title>
+
     <Authors>Alkau</Authors>
+
     <Product>JustNuget</Product>
     <Description>This is an example of a library that is packed in a nuget.</Description>
-    <RepositoryUrl>https://github.com/al-kau/Just.Nuget</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+
     <PackageProjectUrl>https://github.com/al-kau/Just.Nuget</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>nuget; example;</PackageTags>
+
+    <PackageTags>nuget;example;</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-    <AnalysisLevel>6.0-all</AnalysisLevel>
-
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <!--<EmbedUntrackedSources>true</EmbedUntrackedSources>-->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+<!-- NuGet package metadata -->
+
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -33,14 +42,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+    <!-- Source link packages for projects hosted on GitHub -->
+    <!-- https://github.com/dotnet/sourcelink#using-source-link-in-net-projects -->
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
