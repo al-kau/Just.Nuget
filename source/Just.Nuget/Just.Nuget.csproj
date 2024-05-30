@@ -49,7 +49,7 @@
   <ItemGroup>
     <!-- Source link packages for projects hosted on GitHub -->
     <!-- https://github.com/dotnet/sourcelink#using-source-link-in-net-projects -->
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
