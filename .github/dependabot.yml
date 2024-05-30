@@ -12,7 +12,7 @@ updates:
       - "al-kau"
     open-pull-requests-limit: 20
     groups:
-      Finebits:
+      Alkau:
         patterns:
           - "Alkau.*"
       Microsoft:
