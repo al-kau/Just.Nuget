@@ -1,0 +1,100 @@
+name: Pack Nuget
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload-artifact:
+        description: 'NuGet artifact will be saved'
+        type: boolean
+        required: false
+        default: false
+      push-to-nuget:
+        description: 'NuGet will be pushed to nuget.org'
+        type: boolean
+        required: false
+        default: false
+      ignore-certificate:
+        description: 'NuGet can be pushed without a certificate'
+        type: boolean
+        required: false
+        default: false
+  release:
+    types: [published]
+
+env:
+  project: ./source/Just.Nuget.sln
+  test-project: ./source/Just.Nuget.sln
+  configuration: Release
+
+  package-root: "${{ github.workspace }}/nupkgs"
+  certificate-root: "${{ github.workspace }}/certificates"
+
+jobs:
+  test-nuget:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        fetch-depth: 0
+        submodules: recursive
+
+    - name: Install dotnet
+      uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4.0.0
+      with:
+        dotnet-version: 8.x
+
+    - name: Build the project
+      run: dotnet build ${{ env.project }} --configuration ${{ env.configuration }}
+
+    - name: Test the project
+      run: dotnet test ${{ env.test-project }} --configuration ${{ env.configuration }}
+
+  pack-nuget:
+    needs: [test-nuget]
+    strategy:
+      matrix:
+        nuget-project:
+          - './source/Just.Nuget/Just.Nuget.csproj'
+    runs-on: ubuntu-latest
+
+    env:
+      nuget-project: ${{ matrix.nuget-project }}
+
+    steps:
+    - name: Artifact name
+      id: artifact-name
+      shell: bash
+      run: |
+        project="${{ env.nuget-project }}"
+        filename=$(basename -- $project)
+        name=${filename%.*}
+        echo "artifact-name=$name" >> $GITHUB_OUTPUT
+      
+    - name: Checkout
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        fetch-depth: 0
+        submodules: recursive
+
+    - name: Install dotnet
+      uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4.0.0
+      with:
+        dotnet-version: 8.x
+
+    - name: Pack
+      uses: finebits/github-actions/pack-nuget@v1.2.1
+      with:
+        project: ${{ env.nuget-project }}
+        configuration: ${{ env.configuration }}
+        upload-artifact: ${{ github.event_name == 'release' || inputs.upload-artifact == true }}
+        artifact-name: ${{ env.artifact-name }}
+        push-to-nuget: ${{ ( github.event_name == 'release' || inputs.push-to-nuget == true ) && env.nuget-apikey != '' && ( env.certificate != '' || inputs.ignore-certificate == true ) }}
+        nuget-apikey: ${{ env.nuget-apikey }}
+        push-to-github: false
+        certificate: ${{ env.certificate }}
+        certificate-password: ${{ secrets.NUGET_SIGNING_CERT_PASSWORD }}
+      env:
+        artifact-name: "${{ steps.artifact-name.outputs.artifact-name }}"
+        certificate: ${{ secrets.NUGET_SIGNING_CERT_BASE64 }}
+        nuget-apikey: ${{ secrets.NUGET_APIKEY }}
