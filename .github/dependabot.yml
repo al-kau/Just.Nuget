@@ -18,6 +18,9 @@ updates:
       Microsoft:
         patterns:
           - "Microsoft.*"
+      NUnit:
+        patterns:
+          - "NUnit*"
 
   - package-ecosystem: "github-actions"
     directory: "/"                                  # Workflow files stored in the default location
