@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Alkau.Just.Nuget" Version="0.1.3-preview" />
+    <PackageReference Include="Alkau.Just.Nuget" Version="0.1.3-preview.3" />
   </ItemGroup>
 
 </Project>
