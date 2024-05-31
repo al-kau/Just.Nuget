@@ -13,11 +13,6 @@ on:
         type: boolean
         required: false
         default: false
-      ignore-certificate:
-        description: 'NuGet can be pushed without a certificate'
-        type: boolean
-        required: false
-        default: false
   release:
     types: [published]
 
@@ -27,7 +22,6 @@ env:
   configuration: Release
 
   package-root: "${{ github.workspace }}/nupkgs"
-  certificate-root: "${{ github.workspace }}/certificates"
 
 jobs:
   test-nuget:
@@ -62,7 +56,7 @@ jobs:
       nuget-project: ${{ matrix.nuget-project }}
 
     steps:
-    - name: Artifact name
+    - name: Read artifact name
       id: artifact-name
       shell: bash
       run: |
@@ -70,7 +64,7 @@ jobs:
         filename=$(basename -- $project)
         name=${filename%.*}
         echo "artifact-name=$name" >> $GITHUB_OUTPUT
-      
+
     - name: Checkout
       uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
       with:
@@ -89,12 +83,8 @@ jobs:
         configuration: ${{ env.configuration }}
         upload-artifact: ${{ github.event_name == 'release' || inputs.upload-artifact == true }}
         artifact-name: ${{ env.artifact-name }}
-        push-to-nuget: ${{ ( github.event_name == 'release' || inputs.push-to-nuget == true ) && env.nuget-apikey != '' && ( env.certificate != '' || inputs.ignore-certificate == true ) }}
+        push-to-nuget: ${{ ( github.event_name == 'release' || inputs.push-to-nuget == true ) && env.nuget-apikey != '' }}
         nuget-apikey: ${{ env.nuget-apikey }}
-        push-to-github: false
-        certificate: ${{ env.certificate }}
-        certificate-password: ${{ secrets.NUGET_SIGNING_CERT_PASSWORD }}
       env:
         artifact-name: "${{ steps.artifact-name.outputs.artifact-name }}"
-        certificate: ${{ secrets.NUGET_SIGNING_CERT_BASE64 }}
         nuget-apikey: ${{ secrets.NUGET_APIKEY }}
