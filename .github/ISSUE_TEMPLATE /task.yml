@@ -1,0 +1,22 @@
+name: "✍️ Create a Task"
+description: Create a new task.
+labels: ["Type/Task"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear description of what needs to be done.
+    validations:
+      required: true
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Issues
+      description: Mention if any related issues.
+      placeholder: |
+        - [ ] Sub issues 
+        - [ ] Sub issues
+    validations:
+      required: false
