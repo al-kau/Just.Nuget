@@ -3,9 +3,9 @@ description: Create a new task.
 labels: ["task"]
 body:
   - type: markdown
-      attributes: 
-        value: |
-          You are writing a task for the maintainers of this repository. If you are not a maintainer yourself, instead submit a bug report or suggestion.
+    attributes: 
+      value: |
+        You are writing a task for the maintainers of this repository. If you are not a maintainer yourself, instead submit a bug report or suggestion.
 
   - type: textarea
     id: description
