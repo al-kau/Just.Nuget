@@ -1,0 +1,32 @@
+name: ✨ Feature Request
+title: '[FEATURE] <title>'
+description: Suggest an enhancement to the project
+labels: ["enhancement"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your feature request. Please describe the feature in detail, why it would be useful, and what use cases it supports.
+
+  - type: textarea
+    attributes:
+      label: What would you like to be added?
+      description: A clear description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Why is this needed?
+      description: How would this feature be useful to you or others? Please explain the use case.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extrainfo
+    attributes:
+      label: Additional information
+      description: Anything else we should know?
+    validations:
+      required: false
