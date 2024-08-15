@@ -11,7 +11,8 @@ body:
 
   - type: markdown
     attributes:
-      value: ## Description
+      value: |
+        ## Description
 
   - type: textarea
     id: steps-to-reproduce
@@ -97,7 +98,8 @@ body:
 
   - type: markdown
     attributes:
-      value: ## Additional information
+      value: |
+        ## Additional information
 
   - type: textarea
     id: logfiles
