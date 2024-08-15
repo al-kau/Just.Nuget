@@ -11,28 +11,32 @@ body:
 
   - type: markdown
     attributes:
-      value: |
-        ## Description
+      value: ## Description
 
   - type: textarea
+    id: steps-to-reproduce
     attributes:
       label: Steps to Reproduce
       description: |
         Describe all the steps we need to take to show the behavior that you have observed. 
       placeholder: |
-        1. How do you create the chart.
-        2. What's the chart option
-        3. User interactions before the error happens.
-
-  - type: textarea
-    id: description
-    attributes:
-      label: Current behavior
-      description: A description of what you're experiencing. You can add screenshots as well. 
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error    
     validations:
       required: true
 
   - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior
+      description: A description of what you're experiencing. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
     attributes:
       label: Expected Behavior
       description: A description of what you expected to happen.
@@ -45,9 +49,10 @@ body:
         ## Environment
 
   - type: input
+    id: app-version
     attributes:
-      label: Version
-      description: What version of the application are you running?
+      label: Application Version
+      description: What version of the application are you using?
       placeholder: 1.0.0
     validations:
       required: true
@@ -56,7 +61,7 @@ body:
     id: platforms-affected
     attributes:
       label: Affected platforms
-      description: Select all or any platform that you see this issue on. 
+      description: Please select platforms where the issue can be reproduced. 
       multiple: true
       options:
         - Android
@@ -72,28 +77,42 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+      description: What operating system version are you using?
+      placeholder: Windows 11 Version 21H2 (OS Build 22000.1574)
+    validations:
+      required: true
+
+  - type: input
+    id: browser-version
+    attributes:
+      label: "Browser Version"
+      description: What version of browser are you using?
+      placeholder: Microsoft Edge (Version 127.0.2651.98)
+    validations:
+      required: false
+
   - type: markdown
     attributes:
-      value: |
-      
-        ---
+      value: ## Additional information
 
   - type: textarea
-    id: logs
+    id: logfiles
     attributes:
       label: Log files
       description: If possible, please attach log file with log level set to debug.
-      placeholder:
-        You can attach log files by clicking this area to highlight it and then
-        dragging the files in.
+      placeholder: Drag and drop your log files here!
     validations:
       required: false
 
   - type: textarea
+    id: extrainfo
     attributes:
-      label: Any additional comments?
-      description: |
-        e.g. some background/context of how you ran into this bug.
+      label: Anything else we need to know?
+      description: Anything that will give us more context about the issue!
     validations:
       required: false
 
