@@ -1,7 +1,7 @@
 name: 🐞 Bug Report
 title: '[BUG] <title>'
 description: File a bug report
-labels: ["bug", "to verify"]
+labels: ["bug"]
 assignees: []
 body:
   - type: markdown
