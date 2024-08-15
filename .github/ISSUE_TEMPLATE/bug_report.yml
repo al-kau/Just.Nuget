@@ -49,8 +49,8 @@ body:
       label: Version
       description: What version of the application are you running?
       placeholder: 1.0.0
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: dropdown
     id: platforms-affected
