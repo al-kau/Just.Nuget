@@ -1,7 +1,12 @@
 name: "✍️ Create a Task"
 description: Create a new task.
-labels: ["Type/Task"]
+labels: ["task"]
 body:
+  - type: markdown
+      attributes: 
+        value: |
+          You are writing a task for the maintainers of this repository. If you are not a maintainer yourself, instead submit a bug report or suggestion.
+
   - type: textarea
     id: description
     attributes:
@@ -11,10 +16,10 @@ body:
       required: true
 
   - type: textarea
-    id: related
+    id: todo
     attributes:
-      label: Related Issues
-      description: Mention if any related issues.
+      label: ToDo Items
+      description: Complete the following items before requesting a PR review.
       placeholder: |
         - [ ] Sub issues 
         - [ ] Sub issues
@@ -22,17 +27,9 @@ body:
       required: false
 
   - type: textarea
+    id: extrainfo
     attributes:
-      label: Acceptance Criteria
-      description: The items to complete to satisfy the Definition of Done.
-      placeholder: |
-        ```[tasklist]
-        - [ ] Item 1
-        - [ ] Item 2
-        ```
-      value: |
-        ```[tasklist]
-        ```
+      label: Additional information
+      description: Anything else we should know?
     validations:
-      required: true
-      render: markdown
+      required: false
