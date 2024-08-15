@@ -20,3 +20,19 @@ body:
         - [ ] Sub issues
     validations:
       required: false
+
+  - type: textarea
+    attributes:
+      label: Acceptance Criteria
+      description: The items to complete to satisfy the Definition of Done.
+      placeholder: |
+        ```[tasklist]
+        - [ ] Item 1
+        - [ ] Item 2
+        ```
+      value: |
+        ```[tasklist]
+        ```
+    validations:
+      required: true
+      render: markdown
