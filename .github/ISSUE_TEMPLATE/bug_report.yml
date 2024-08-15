@@ -1,63 +1,100 @@
-name: Bug Report
-description: File a bug report.
-title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - al-kau
+name: 🐞 Bug Report
+title: '[BUG] <title>'
+description: File a bug report
+labels: ["bug", "to verify"]
+assignees: []
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
+        Thanks for taking the time to fill out this bug report! Please make sure to add as much detail as you can.
+
+  - type: markdown
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
+      value: |
+        ## Description
+
   - type: textarea
-    id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Steps to Reproduce
+      description: |
+        Describe all the steps we need to take to show the behavior that you have observed. 
+      placeholder: |
+        1. How do you create the chart.
+        2. What's the chart option
+        3. User interactions before the error happens.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Current behavior
+      description: A description of what you're experiencing. You can add screenshots as well. 
     validations:
       required: true
-  - type: dropdown
-    id: version
+
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Environment
+
+  - type: input
     attributes:
       label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-      default: 0
-    validations:
-      required: true
+      description: What version of the application are you running?
+      placeholder: 1.0.0
+      validations:
+        required: true
+
   - type: dropdown
-    id: browsers
+    id: platforms-affected
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: Affected platforms
+      description: Select all or any platform that you see this issue on. 
       multiple: true
       options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+        - Android
+        - iOS
+        - Linux (Desktop)
+        - macOS (Desktop)
+        - macOS (MacCatalyst)
+        - WebAssembly
+        - Windows (Desktop)
+        - Windows (UWP)
+        - Windows (WinUI)
+
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+      
+        ---
+
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
+      label: Log files
+      description: If possible, please attach log file with log level set to debug.
+      placeholder:
+        You can attach log files by clicking this area to highlight it and then
+        dragging the files in.
+    validations:
+      required: false
+
+  - type: textarea
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: Any additional comments?
+      description: |
+        e.g. some background/context of how you ran into this bug.
+    validations:
+      required: false
+
+ 
