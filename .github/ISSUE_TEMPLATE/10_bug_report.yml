@@ -14,20 +14,6 @@ body:
         ## Description
 
   - type: textarea
-    id: steps-to-reproduce
-    attributes:
-      label: Steps to Reproduce
-      description: |
-        Describe all the steps we need to take to show the behavior that you have observed.
-      placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. Scroll down to '...'
-        4. See error
-    validations:
-      required: true
-
-  - type: textarea
     id: current-behavior
     attributes:
       label: Current behavior
@@ -40,6 +26,20 @@ body:
     attributes:
       label: Expected Behavior
       description: A description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Describe all the steps we need to take to show the behavior that you have observed.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
 
