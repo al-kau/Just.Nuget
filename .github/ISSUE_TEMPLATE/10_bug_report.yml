@@ -1,8 +1,7 @@
-name: 🐞 Bug Report
+name: ':lady_beetle: Bug Report'
 title: '[BUG] <title>'
 description: File a bug report
 labels: ["bug"]
-assignees: []
 body:
   - type: markdown
     attributes:
@@ -19,12 +18,12 @@ body:
     attributes:
       label: Steps to Reproduce
       description: |
-        Describe all the steps we need to take to show the behavior that you have observed. 
+        Describe all the steps we need to take to show the behavior that you have observed.
       placeholder: |
         1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error    
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
 
@@ -32,7 +31,7 @@ body:
     id: current-behavior
     attributes:
       label: Current behavior
-      description: A description of what you're experiencing. 
+      description: A description of what you're experiencing.
     validations:
       required: true
 
@@ -62,7 +61,7 @@ body:
     id: platforms-affected
     attributes:
       label: Affected platforms
-      description: Please select platforms where the issue can be reproduced. 
+      description: Please select platforms where the issue can be reproduced.
       multiple: true
       options:
         - Android
@@ -117,5 +116,3 @@ body:
       description: Anything that will give us more context about the issue!
     validations:
       required: false
-
- 
