@@ -20,7 +20,7 @@ body:
     attributes:
       label: ToDo Items
       description: Complete the following items before requesting a PR review.
-      placeholder: |
+      placeholder: >
         - [ ] Sub issues 
         - [ ] Sub issues
     validations:
