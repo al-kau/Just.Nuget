@@ -1,8 +1,7 @@
-name: ✨ Feature Request
+name: '✨ Feature Request'
 title: '[FEATURE] <title>'
 description: Suggest an enhancement to the project
-labels: ["enhancement"]
-assignees: []
+labels: ['enhancement']
 body:
   - type: markdown
     attributes:
@@ -12,7 +11,7 @@ body:
   - type: textarea
     attributes:
       label: What would you like to be added?
-      description: A clear description of what you want to happen.
+      description: A clear description of what you want to happen. Feel free to add any diagrams, (mocked up) screenshots, or other materials that support your story.
     validations:
       required: true
 
